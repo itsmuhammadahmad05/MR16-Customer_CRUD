@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import { connectDB } from "./DB/config.js";
 import syncDB from "./DB/init.js";
+import allRoutes from "./Routes/routes.js";
 
 
 
@@ -15,7 +16,7 @@ syncDB().then(() => {
 
 const app = express();
 app.use(express.json());
-// app.use(allRoutes);
+app.use(allRoutes);
 
 
 app.listen(3000, () => {

@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import TokenModel from "../model/Auth/token.js";
+import TokenModel from "../../Models/Token/token.js";
 
 const AuthenticateMiddleware = async (req, res, next) => {
     let token = req.headers.authorization;

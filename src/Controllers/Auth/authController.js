@@ -1,9 +1,9 @@
-    import { compare, hash } from "bcrypt";
-    import jwt from "jsonwebtoken";
-    import TokenModel from "../../model/Auth/token.js";
-    import UserModel from "../../model/user/index.js";
+import { compare, hash } from "bcrypt";
+import jwt from "jsonwebtoken";
+import TokenModel from "../../Models/Token/token.js";
+import UserModel from "../../Models/User/user.js";
     
-    const AuthController = {
+const AuthController = {
     signUp: async (req, res) => {
         try {
         const payload = req.body;
@@ -53,7 +53,8 @@
         }
         delete user.password;
         console.log(user, "user");
-        const token = jwt.sign(user, JWT_SECRET_KEY, {
+
+        const token = jwt.sign(user, '12345asdfghjkl67890', {
             expiresIn: "1h",
         });
 
@@ -67,6 +68,6 @@
             return res.status(500).json({ message: "Internal server error" });
         }
     },
-    };
+};
 
-    export default AuthController;
+export default AuthController;
