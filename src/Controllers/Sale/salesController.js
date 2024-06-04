@@ -73,10 +73,10 @@ const SalesController = {
         } 
 
         //updating stock
-        await Promise.all(payload.salesProducts.map(async (product) => {
-            const existingProduct = await ProductModel.findById(product.productId);
+        await Promise.all(payload.salesProducts.map(async (ele) => {
+            const existingProduct = await ProductModel.findById(ele.productId);
             if (existingProduct) {
-                existingProduct.stock -= product.quantity;
+                existingProduct.stock -= ele.productQuantity;
                 await existingProduct.save();
             }
         }));
