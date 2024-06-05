@@ -66,7 +66,7 @@ const SalesController = {
             }
             salesProducts.push({
             ...ele,
-            SaleId: sale.id 
+            SaleId: sale.id
         });
         const saleProduct = await SaleProductModel.bulkCreate(salesProducts);//bulk creating in saleProductModel
         res.status(200).json({ message: "sale created", saleProduct });

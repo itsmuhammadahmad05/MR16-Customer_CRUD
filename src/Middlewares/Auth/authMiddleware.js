@@ -14,7 +14,7 @@ const AuthenticateMiddleware = async (req, res, next) => {
         return res.status(401).json({ message: "UnAuthorized" });
     }
     try {
-        const decoded = jwt.verify(token, JWT_SECRET_KEY);
+        const decoded = jwt.verify(token, '12345asdfghjkl67890');
         req.user = decoded;
         next();
 
